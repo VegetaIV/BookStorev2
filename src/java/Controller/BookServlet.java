@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MyPC
  */
-@WebServlet(name = "BookServlet", urlPatterns = {"/book.do/*"})
+@WebServlet(name = "BookServlet", urlPatterns = {"/book.do"})
 public class BookServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

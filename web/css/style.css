@@ -636,13 +636,27 @@ p.m_text {
     right: 0px;
     background: url(../images/img-sprite.png) no-repeat -477px -21px;
 }
+
+.cartt {
+    float: left;
+    width: 100%;
+    margin: 30px;
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+.cartt span {
+    font-size: 16px;
+    color: #333;
+    font-weight: 300;
+}
 .single-left {
     float: left;
     width: 70%;
 }
 .book_cart {
     display: inline-block;
-    margin: 20px;
+    margin: 0 20px 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid blue; 
 }
@@ -669,7 +683,6 @@ p.m_text {
 .money p {
     color: black;
     font-size: 16px;
-    font-weight: 300;
 }
 .book_info p {
    font-size: 18px;
@@ -682,11 +695,23 @@ p.m_text {
 .book_info a {
     color: blue;
 }
-
-.single-right {
-    margin-top: 40px;
+.single_right {
     float: right;
+    margin-top: 200px;
+    margin-right: 30%;
+}
+.single-right {
+    margin-top: 200px;    
     width: 30%;
+    padding-left: 50px;
+    overflow: hidden;
+    transition: 0.4s;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+.money_into {
+    margin: 30px 0;
 }
 .pay {
     padding: 10px;    
@@ -701,6 +726,19 @@ p.m_text {
     font-size: 14px;
     line-height: 1.42857;
     border-radius: 4px;
+}
+.into {
+    margin: 5px 0 0 20px;
+    font-size: 16px;
+    display: inline-block;
+}
+.moneyy {
+    margin-right: 20px;
+    color: #fe3834;
+    font-size: 22px;
+    font-weight: 400;
+    display: inline-block;
+    float: right;
 }
 .pay a {
     color: #fff;

@@ -42,8 +42,10 @@ public class CartServlet extends HttpServlet {
         Cart cart = new Cart(accID);
         List<Book> list = cart.bookCart();
         int total = cart.getTotal();
+        int amount = cart.getAmount();
         request.setAttribute("bookCart", list);
         request.setAttribute("total", total);
+        request.setAttribute("amount", amount);
         
         RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
         view.forward(request, response);

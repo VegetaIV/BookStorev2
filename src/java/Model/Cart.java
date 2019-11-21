@@ -22,10 +22,12 @@ import javax.sql.DataSource;
  */
 public class Cart {
     private int total;
+    private int amount;
     private String accID;
     
     public Cart (String accID) {
         this.total = 0;
+        this.amount = 0;
         this.accID = accID;
     }
     
@@ -50,6 +52,7 @@ public class Cart {
                 book.setPrice(rs.getInt("Price"));
                 book.setAmount(rs.getInt("Amount"));
                 list.add(book);
+                this.amount += book.getAmount();
                 this.total += book.getPrice()*book.getAmount();
             }
             
@@ -65,5 +68,9 @@ public class Cart {
     
     public String getAccID() {
         return this.accID;
+    }
+    
+    public int getAmount() {
+        return this.amount;
     }
 }
