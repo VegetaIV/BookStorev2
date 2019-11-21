@@ -43,7 +43,8 @@
     <body>
         <jsp:include page="header.jsp"></jsp:include>
 
-        <div class="container">
+            <div class="container">
+                <div class="cartt">GIỎ HÀNG<span> (${amount} sản phẩm)</span></div>
             <div class="single-left">
                 <c:forEach var="cart" items="${bookCart}">
                     <div class="book_cart">
@@ -60,12 +61,15 @@
                     </div>
                 </c:forEach>
             </div>
-            <div class="single-right">
-                <div class="money_into">
-                    Thành tiền: ${total/1000}00vnđ
-                </div>
-                <div class="pay">
-                    <a href="#">Thanh toán</a>
+            <div class="single_right">                
+                <div class="single-right">
+                    <div class="money_into">
+                        <div class="into">Thành tiền: </div>
+                        <div class="moneyy">${total/1000}00vnđ</div>
+                    </div>
+                    <div class="pay">
+                        <a href="#">Thanh toán</a>
+                    </div>
                 </div>
             </div>
         </div>
