@@ -34,7 +34,7 @@
                             <li><a href="login.html"><span> </span>Đăng nhập</a></li> |
                             <li ><a href="register.html">Đăng kí</a></li>
                         </ul>
-                        <div class="cart"><a href="#"><span> </span>Giỏ hàng</a></div>
+                        <div class="cart"><a href="cart.do"><span> </span>Giỏ hàng</a></div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="clearfix"> </div>	

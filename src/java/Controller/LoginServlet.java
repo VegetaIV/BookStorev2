@@ -5,11 +5,8 @@
  */
 package Controller;
 
-import Model.Book;
-import Model.MoreBook;
+import Model.Login;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,33 +18,40 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MyPC
  */
-@WebServlet(name = "BookServlet", urlPatterns = {"/book.do"})
-public class BookServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/login.do"})
+public class LoginServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String bookID = "VN0001";
-        if (request.getParameter("bookID") != null) {
-            bookID = request.getParameter("bookID");
+        String mail = null;
+        String password = null;
+        if (request.getParameter("mail") != null) {
+            mail = request.getParameter("mail");
+            password = request.getParameter("password");
         }
-        Book book = new Book(bookID);
-        
-        request.setAttribute("bookID", bookID);
-        request.setAttribute("bName", book.getbName());
-        request.setAttribute("author", book.getAuthor());
-        request.setAttribute("price", book.getPrice());
-        request.setAttribute("amount", book.getAmount());
-        request.setAttribute("content", book.getContent());
-        
-        int off = 6;
-        MoreBook more = new MoreBook();
-        List<Book> list = more.listBook(bookID, off);
-        request.setAttribute("bookList", list);
-        request.setAttribute("off", off);
-        
-        RequestDispatcher view = request.getRequestDispatcher("viewProducts.jsp");
-        view.forward(request, response);       
+        Login log = new Login();
+        boolean check = log.login(mail, password);
+        if (check) {
+            String accID = log.getId();
+            request.setAttribute("accID", accID);
+            RequestDispatcher view = request.getRequestDispatcher("index.html");
+            view.forward(request, response);
+        } else {
+            String message = "Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại!";
+            request.setAttribute("message", message);
+            RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+            view.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
