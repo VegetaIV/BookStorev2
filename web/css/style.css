@@ -594,6 +594,11 @@ p.m_text {
     max-width:150px;
     max-height:500px;
 }
+.tag_list li{
+    width: 20%;
+    margin: 20px;
+    display: inline-block;
+}
 .more-book-image {
     width: 180px;
 }
@@ -946,7 +951,7 @@ p.m_text {
     padding: 0;
 }
 .login-left h3, .login-right h3 {
-    color: #F97E76;
+    color: #2D5796;
     font-size: 1.1em;
     text-transform: uppercase;
     font-weight: 600;
@@ -997,9 +1002,16 @@ p.m_text {
     font-size:0.9em;
     padding:10px;
 }
+.login-right input[type="password"] {
+    border: 1px solid #DDDBDB;
+    outline-color:#fb4d01;
+    width: 96%;
+    font-size:0.9em;
+    padding:10px;
+}
 .login-right input[type="submit"] {
     background:#F97E76;
-    color: #FFF;
+    color: #2D5796;
     font-size: 1em;
     padding: 0.5em 1.2em;
     transition: 0.5s all;

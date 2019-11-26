@@ -29,10 +29,10 @@
                         <div class="clearfix"> </div>
                     </div>
                     <div class="header-bottom-right">					
-                        <div class="account"><a href="login.html"><span> </span>Tài khoản</a></div>
+                        <div class="account"><a href="login.jsp"><span> </span>Tài khoản</a></div>
                         <ul class="login">
-                            <li><a href="login.html"><span> </span>Đăng nhập</a></li> |
-                            <li ><a href="register.html">Đăng kí</a></li>
+                            <li><a href="login.jsp"><span> </span>Đăng nhập</a></li> |
+                            <li ><a href="register.jsp">Đăng kí</a></li>
                         </ul>
                         <div class="cart"><a href="cart.do"><span> </span>Giỏ hàng</a></div>
                         <div class="clearfix"> </div>
