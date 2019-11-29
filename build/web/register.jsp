@@ -59,7 +59,7 @@
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="  register-bottom-grid">
+                    <div class="register-bottom-grid">
                         <h3>THÔNG TIN ĐĂNG NHẬP</h3>
                         <div class="mation">
                             <span>Mật khẩu<label>*</label></span>

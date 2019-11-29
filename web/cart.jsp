@@ -66,9 +66,7 @@
                         <div class="into">Thành tiền: </div>
                         <div class="moneyy">${total/1000}00vnđ</div>
                     </div>
-                    <div class="pay">
-                        <a href="pay.jsp">Thanh toán</a>
-                    </div>
+                    <a class="pay" href="pay.jsp">Thanh toán</a>                    
                 </div>
             </div>
         </div>
