@@ -966,7 +966,7 @@ a.pay {
 	padding-bottom: 0.5em;
 }
 .login-left p, .login-right p {
-	color: #555;
+	color: red;
 	display: block;
 	font-size: 1.1em;
 	margin: 0 0 1.5em 0;
@@ -1046,10 +1046,13 @@ a.forgot {
 	margin: 0;
 	font-weight:600;
 }
+.register-top-grid p, register-bottom-grid p {
+    color: red;
+}
 .register-top-grid span, .register-bottom-grid span {
 	color:#555;
 	font-size: 0.9em;
-	padding-bottom: 0.2em;
+	padding: 1em 0 0;
 	display: block;
 	text-transform: uppercase;
 }
@@ -1131,7 +1134,7 @@ a.forgot {
 .register-but{
 	margin-top:1em;
 }
-.register-but form input[type="submit"] {
+.register-but input[type="submit"] {
 	background: blue;
 	color: #FFF;
 	font-size:1em;
@@ -1973,4 +1976,7 @@ img.banner-bag {
     font-size: 200%;
     padding: 10% 20% 10% 20%;
     margin-left: 20px;
+}
+.login-right p {
+    color: red;
 }

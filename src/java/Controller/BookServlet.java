@@ -10,6 +10,7 @@ import Model.MoreBook;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,14 +24,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "BookServlet", urlPatterns = {"/book.do"})
 public class BookServlet extends HttpServlet {
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         String bookID = "VN0001";
-        if (request.getParameter("bookID") != null) {
-            bookID = request.getParameter("bookID");
+        if (request.getQueryString() != null) {
+            bookID = request.getQueryString();
         }
+        
         Book book = new Book(bookID);
         
         request.setAttribute("bookID", bookID);

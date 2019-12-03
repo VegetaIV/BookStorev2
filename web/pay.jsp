@@ -48,7 +48,7 @@
             </div>
             <h4>Điền vào dưới đây để hoàn thành mua bán của bạn !</h4>
             <div>
-                <a href="login.html">
+                <a href="login.jsp">
                     <span></span>
                     <h5>Bạn đã là thành viên? Đăng nhâp/ Đăng kí</h5>
                 </a>

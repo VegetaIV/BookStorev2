@@ -43,8 +43,9 @@
         <jsp:include page="header.jsp"/>
         <div class="container">
             <div class="account_grid">
-                <div class=" login-right">
+                <div class="login-right">
                     <h3>ĐĂNG NHẬP</h3>
+                    <p>${message}</p>
                     <form action="login.do" method="post">
                         <div>
                             <span>Địa chỉ Email<label>*</label></span>

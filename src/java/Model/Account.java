@@ -100,4 +100,23 @@ public class Account {
             System.out.println(e.getMessage());
         }
     }
+    
+    public boolean checkExist(String mail) {
+        String query = "Select AccID from Account where Mail = \'" + mail + "\'";
+        boolean check = false;
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/BookStore");
+            Connection conn = ds.getConnection();
+            Statement state = conn.createStatement();
+            ResultSet rs = state.executeQuery(query);
+            if (rs.next()) {
+                check = true;
+            }
+        } catch (SQLException | NamingException e) {
+            System.out.println(e.getMessage());
+        }
+        return check;
+    }
 }

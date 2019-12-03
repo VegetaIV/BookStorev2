@@ -16,6 +16,10 @@
         <servlet-name>CateServlet</servlet-name>
         <servlet-class>Controller.CateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>Controller.RegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookServlet</servlet-name>
         <url-pattern>/book.do</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>CateServlet</servlet-name>
         <url-pattern>/CateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

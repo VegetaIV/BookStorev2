@@ -47,35 +47,35 @@
                 <form action="register.do" method="post"> 
                     <div class="register-top-grid">
                         <h3>THÔNG TIN CÁ NHÂN</h3>
+                        <p>${inforMessage}</p>
                         <div class="mation">
-                            <span>Họ<label>*</label></span>
-                            <input type="text" name="Ho"> 
-
                             <span>Tên<label>*</label></span>
-                            <input type="text" name="name"> 
+                            <input type="text" name="name" value="${name}"> 
 
                             <span>Địa chỉ Email<label>*</label></span>
-                            <input type="text" name="mail"> 
+                            <input type="text" name="mail" value="${mail}"> 
+
+                            <span>Số điện thoại<label>*</label></span>
+                            <input type="text" name="phone" value="${phone}">
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="register-bottom-grid">
                         <h3>THÔNG TIN ĐĂNG NHẬP</h3>
+                        <p>${passMessage}</p>
                         <div class="mation">
                             <span>Mật khẩu<label>*</label></span>
                             <input type="password" name="password">
                             <span>Xác nhận mật khẩu<label>*</label></span>
-                            <input type="password" name="password">
+                            <input type="password" name="confirm">
                         </div>
                     </div>
-                </form>
-                <div class="clearfix"> </div>
-                <div class="register-but">
-                    <form>
+                    <div class="clearfix"> </div>
+                    <div class="register-but">
                         <input type="submit" value="xác nhận">
-                        <div class="clearfix"> </div>
-                    </form>
-                </div>
+                        <div class="clearfix"> </div> 
+                    </div>
+                </form>
             </div>
             <jsp:include page="category.jsp"/>
             <div class="clearfix"> </div>

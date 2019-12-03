@@ -136,7 +136,7 @@
                 <ul id="flexiselDemo1">
                     <c:forEach var="book" items="${bookList}">
                         <li>
-                            <a href="book.do">
+                            <a href="<c:url value='book.do?${book.bookID}'/>">
                                 <img src="images/${book.bookID}.jpg" class="more-book-image"/>
                                 <div class="grid-flex">
                                     <div class="more-book-name">${book.bName}</div>

@@ -18,16 +18,16 @@ import javax.sql.DataSource;
  *
  * @author MyPC
  */
-public class Login {
+public class Register {
     private String id;
     
-    public Login () {
+    public Register() {
         
-    } 
+    }
     
-    public boolean login (String mail, String password) {
-        String query = "Select AccID from Account where Mail = \'" + mail + "\' and Password = \'" + password + "\'";
-        boolean check = false;
+    public Register(String name, String mail, String phone, String password) {
+        String query = "Select top 1 AccID from Account order by AccID desc";
+        String last;
         try {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:comp/env");
@@ -35,16 +35,29 @@ public class Login {
             Connection conn = ds.getConnection();
             Statement state = conn.createStatement();
             ResultSet rs = state.executeQuery(query);
+            String accID = null;
             if (rs.next()) {
-                this.id = rs.getString("AccID");
-                check = true;
+                last = rs.getString(1);
+                int c, m = 0;
+                int k = last.length();
+                for (int i=0; i<k; i++) {
+                    c = last.charAt(i) - '0';
+                    m = m*10 + c;
+                }
+                int n = m + 1;
+                accID = "" + n;
             }
-            else this.id = null;
-            
-        } catch (SQLException | NamingException e) {
+            rs.close();
+            query = "Insert into Account (AccID, Mail, Name, Phone, Password)" +
+                    " values (\'" + accID + "\', \'" + mail + "\', N\'" + name +
+                    "\', \'" + phone + "\', \'" + password + "\')";
+            rs = state.executeQuery(query);
+            if (rs.next()) {
+                this.id = accID;
+            }
+        } catch(SQLException | NamingException e) {
             System.out.println(e.getMessage());
         }
-        return check;
     }
 
     public String getId() {
@@ -54,6 +67,5 @@ public class Login {
     public void setId(String id) {
         this.id = id;
     }
-    
     
 }
