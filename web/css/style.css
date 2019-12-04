@@ -670,6 +670,12 @@ p.m_text {
     padding-bottom: 20px;
     border-bottom: 1px solid blue; 
 }
+.book_cart:hover {
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.1);
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    z-index: 1;
+    text-decoration: none;
+}
 .book_cart img {
     width: 20%;
 }
@@ -1988,19 +1994,19 @@ img.banner-bag {
 }
 .result_top {
     margin-top: 0;
-    padding: 25px 20px 7px;
+    padding: 25px 20px 20px;
     border: 0!important;
 }
 .result_top h1 {
     font-size: 24px!important;
     display: inline;
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
 }
 .result_top span {
     display: inline;
     font-size: 22px;
-    font-weight: 300;
+    font-weight: 400;
     color: gray;
     margin-left: 10px;
 }

@@ -56,7 +56,7 @@ public class Search {
             query = "Declare @query Nvarchar(max)\n" + 
                 "Select @query = dbo.non_unicode_convert(N\'" + key + "\')\n" + 
                 "Select * from Book where dbo.non_unicode_convert(BName) like \'%\' + @query + \'%\'";
-            rs = state.executeQuery("query");
+            rs = state.executeQuery(query);
             while (rs.next()) {
                 book = new Book();
                 book.setBookID(rs.getString("BookID"));
@@ -73,7 +73,7 @@ public class Search {
             query = "Declare @query Nvarchar(max)\n" + 
                 "Select @query = dbo.non_unicode_convert(N\'" + key + "\')\n" + 
                 "Select * from Book where dbo.non_unicode_convert(Author) like \'%\' + @query + \'%\'";
-            rs = state.executeQuery("query");
+            rs = state.executeQuery(query);
             while (rs.next()) {
                 book = new Book();
                 book.setBookID(rs.getString("BookID"));
@@ -90,7 +90,7 @@ public class Search {
             query = "Declare @query Nvarchar(max)\n" + 
                 "Select @query = dbo.non_unicode_convert(N\'" + key + "\')\n" + 
                 "Select * from Book where dbo.non_unicode_convert(Category) like \'%\' + @query + \'%\'";
-            rs = state.executeQuery("query");
+            rs = state.executeQuery(query);
             while (rs.next()) {
                 book = new Book();
                 book.setBookID(rs.getString("BookID"));
