@@ -34,6 +34,7 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String name = null;
@@ -92,10 +93,11 @@ public class RegisterServlet extends HttpServlet {
                 } else {
                     String message = "Đăng ký tài khoản thành công!";
                     Register register = new Register(name, mail, phone, password);
-                    String id = register.getId();
+                    Account account = register.getAcc();
+                    String accID = account.getAccID();
                     request.setAttribute("message", message);
-                    request.setAttribute("accID", id);
-                    RequestDispatcher view = request.getRequestDispatcher("index.html");
+                    request.setAttribute("id", accID);
+                    RequestDispatcher view = request.getRequestDispatcher("account.jsp");
                     view.forward(request, response);
                 }
             } else {

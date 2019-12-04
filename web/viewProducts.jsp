@@ -41,17 +41,17 @@
         </script>
     </head>
     <body>
-        <jsp:include page="header.jsp"></jsp:include>
-            <!--Book Information-->
-            <div class="container"> 
-                <div class=" single_top">
-                    <div class="single_grid">
-                        <div class="grid images_3_of_2">
-                            <ul id="etalage">
-                                <li>
-                                    <a href="optionallink.html">
-                                        <img class="etalage_thumb_image" src="images/${bookID}.jpg" class="img-responsive" />
-                                    <img class="etalage_source_image" src="images/${bookID}.jpg" class="img-responsive" title="" />
+        <jsp:include page="header.jsp"/>
+        <!--Book Information-->
+        <div class="container"> 
+            <div class="single_top">
+                <div class="single_grid">
+                    <div class="grid images_3_of_2">
+                        <ul id="etalage">
+                            <li>
+                                <a href="optionallink.html">
+                                    <img class="etalage_thumb_image img-responsive" src="images/${bookID}.jpg"/>
+                                    <img class="etalage_source_image img-responsive" src="images/${bookID}.jpg" title="" />
                                 </a>
                             </li>
                             <li></li>                            
@@ -136,13 +136,18 @@
                 <ul id="flexiselDemo1">
                     <c:forEach var="book" items="${bookList}">
                         <li>
-                            <a href="<c:url value='book.do?${book.bookID}'/>">
-                                <img src="images/${book.bookID}.jpg" class="more-book-image"/>
-                                <div class="grid-flex">
-                                    <div class="more-book-name">${book.bName}</div>
-                                    <p>${book.price/1000}00vnđ</p>
+                            <div class="product-item">
+                            <a href="<c:url value='book.do?${book.bookID}'/>" class="book-item-a" title="${book.bName}">
+                                <div class="content">
+                                    <span class="book-image">
+                                        <img class="book-item-img" src="images/${book.bookID}.jpg">
+                                    </span>
+                                    <p class="title">${book.bName}</p>
+                                    <p class="author-search">${book.author}</p>
+                                    <p class="price">${book.price/1000}00 vnđ</p>
                                 </div>
-                            </a>                            
+                            </a>
+                        </div>
                         </li>
                         <c:set var="bookID" scope="request" value="NN0002"/>
                     </c:forEach>
@@ -182,9 +187,8 @@
                 </div>
                 <div class="prefix"> </div>
             </div>
-
-            <!---->
-            <jsp:include page="footer.jsp"/>
         </div>
+        <!---->
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

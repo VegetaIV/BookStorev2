@@ -19,13 +19,12 @@
                         <div class="logo">
                             <a href="index.html"><img src="images/logo.png" alt=" " /></a>
                         </div>
-                        <div class="search">
-                            <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = '';
-                                    }" >
-                            <input type="submit"  value="Tìm kiếm">
-
-                        </div>
+                        <form action="search.do" method="get">
+                            <div class="search">
+                                <input type="text" name="key" value="${key}">
+                                <input type="submit"  value="Tìm kiếm">
+                            </div>
+                        </form>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="header-bottom-right">					

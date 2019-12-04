@@ -19,7 +19,7 @@ import javax.sql.DataSource;
  * @author MyPC
  */
 public class Register {
-    private String id;
+    private Account acc;
     
     public Register() {
         
@@ -48,24 +48,33 @@ public class Register {
                 accID = "" + n;
             }
             rs.close();
-            query = "Insert into Account (AccID, Mail, Name, Phone, Password)" +
+            if (phone.equals("")) 
+                query = "Insert into Account (AccID, Mail, Name, Password)" +
+                    " values (\'" + accID + "\', \'" + mail + "\', N\'" + name +
+                    "\', \'" + password + "\')";
+            else query = "Insert into Account (AccID, Mail, Name, Phone, Password)" +
                     " values (\'" + accID + "\', \'" + mail + "\', N\'" + name +
                     "\', \'" + phone + "\', \'" + password + "\')";
             rs = state.executeQuery(query);
             if (rs.next()) {
-                this.id = accID;
+                this.acc = new Account();
+                acc.setAccID(accID);
+                acc.setMail(mail);
+                acc.setName(name);
+                acc.setPhone(phone);
+                acc.setPassword(password);
             }
         } catch(SQLException | NamingException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public String getId() {
-        return id;
+    public Account getAcc() {
+        return acc;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAcc(Account acc) {
+        this.acc = acc;
     }
     
 }
