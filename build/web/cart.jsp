@@ -49,9 +49,9 @@
                     <div class="book_cart">
                         <img class="image_demo" src="images/${cart.bookID}.jpg">
                         <div class="book_info">
-                            <p>${cart.bName}</p>
+                            <p><a href="book.do?${cart.bookID}">${cart.bName}</a></p>
                             <div class="book_author">Tác giả: ${cart.author}</div>
-                            <a href="#" id="delete">Xóa</a> 
+                            <a href="<c:url value='cart.do?bookID=${cart.bookID}'/>" id="delete">Xóa</a> 
                         </div>
                         <div class="money">
                             ${cart.price/1000}00vnđ
@@ -66,7 +66,7 @@
                         <div class="into">Thành tiền: </div>
                         <div class="moneyy">${total/1000}00vnđ</div>
                     </div>
-                    <a class="pay" href="pay.jsp">Thanh toán</a>                    
+                        <a class="pay" href="<c:url value='pay.jsp?money=${total/1000}'/>">Thanh toán</a>                    
                 </div>
             </div>
         </div>

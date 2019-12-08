@@ -215,7 +215,7 @@ ul {
 .menu ul li a:hover{
 	background: #1DBAA5;
 }
-.menu > li > a:hover, .menu > li > a.active {
+.menu > li > a:hover, .menu > li > a:active {
 	background:#fff;
 }
 .menu ul.kid-menu li a{
@@ -710,6 +710,7 @@ p.m_text {
 }
 .book_info a {
     color: blue;
+    text-decoration: none;
 }
 .single_right {
     float: right;
@@ -1023,6 +1024,9 @@ a.pay {
     font-size:0.9em;
     padding:10px;
 }
+.login-right input[type="text"]:focus, .login-right input[type="password"]:focus {
+    border: 1px solid blue;
+}
 .login-right input[type="submit"] {
     background: blue;
     color: #ffffff;
@@ -1069,6 +1073,9 @@ a.forgot {
 	font-size: 1em;
 	padding: 0.5em;
 	margin: 0.5em 0;
+}
+.register-top-grid input[type="text"]:focus, .register-bottom-grid input[type="password"]:focus {
+    border: 1px solid blue;
 }
 .checkbox {
 	margin-bottom: 4px;
@@ -1362,7 +1369,7 @@ ul.face-in-to li a span.facebook-in{
     margin-top: 0px;
     padding-top: 10px;
 }
-.quantity input {
+.quantity input[type=text], .quantity input[type=button] {
     text-align: center;
     width: 32px;
     height: 31px;
@@ -1370,6 +1377,14 @@ ul.face-in-to li a span.facebook-in{
     font-size: 16px;
     color: #43484D;
     font-weight: 300;
+}
+.quantity input[type=submit] {
+    font-size: 1.1em;
+    color: #fff;
+    padding: 0.6em 1.4em;
+    background: blue;
+    text-decoration: none;
+    float: right;
 }
 button[class*=btn] {
     width: 30px;
@@ -2082,4 +2097,45 @@ img.banner-bag {
     padding: 10px 0 0;
     text-align: left;
     width: 100%;
+}
+
+.list-pager {
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: right;
+}
+.list-paper ul {
+    list-style: none;
+    margin: 0;
+    text-align: right;
+    padding: 0;
+}
+.list-pager ul li {
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+}
+.list-pager ul li a.list-pager-a {
+    font-weight: 500;
+    background: #f7f7f7;
+    color: #333;
+    text-decoration: none;
+}
+.list-pager ul li .current-page, .list-pager ul li a.list-pager-a {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 28px;
+}
+.list-pager ul li a.list-pager-a:hover {
+    background: #c1e7ff;
+}
+.list-pager ul li .current-page {
+    font-weight: 400;
+    background: #189eff;
+    color: #fff;
 }

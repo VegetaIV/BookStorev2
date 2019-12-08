@@ -4,7 +4,7 @@
     Author     : MyPC
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,23 +43,45 @@
     <body>
         <jsp:include page="header.jsp"/>
         <div class="container">
-            <jsp:include page="category.jsp"/>
-            <div class="single_mid">
-                <ul class="tag_list">
-                    <c:forEach var="book" items="${list}">
-                        <c:set scope="request" var="linkBook" value="${book.bookID}"/>
-                        <li>
-                            <a href="book/${linkBook}">
-                                <img src="images/${book.bookID}.jpg" class="more-book-image"/>
-                                <div class="grid-flex">
-                                    <div class="more-book-name">${book.bName}</div>
-                                    <p>${book.price/1000}00vnđ</p>
+            <div class="result_right">
+                <div class="result_top">
+                    <h1>${category}</h1><span>(${noOfRecords} kết quả)</span>
+                </div>
+                <div class="result_bottom">
+                    <c:forEach var="book" items="${listBook}">
+                        <div class="book-item product-item">
+                            <a href="<c:url value='book.do?${book.bookID}'/>" class="book-item-a" title="${book.bName}">
+                                <div class="content">
+                                    <span class="book-image">
+                                        <img class="book-item-img" src="images/${book.bookID}.jpg">
+                                    </span>
+                                    <p class="title">${book.bName}</p>
+                                    <p class="author-search">${book.author}</p>
+                                    <p class="price">${book.price/1000}00 vnđ</p>
                                 </div>
                             </a>
-                        </li>
+                        </div>       
                     </c:forEach>
-                </ul>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="list-pager">
+                    <ul>
+                        <c:forEach begin="1" end="${noOfPages}" var="i">
+                            <c:choose>
+                                <c:when test="${currentPage eq i}">
+                                    <li><span class="current-page">${i}</span></li>
+                                </c:when>
+                                <c:otherwise>
+                                <li><a href="<c:url value='products.do?cate=${cate}&page=${i}'/>" class="list-pager-a">${i}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        
+                    </ul>
+                </div>
             </div>
+            <jsp:include page="category.jsp"/>
         </div>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

@@ -67,18 +67,22 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="amount">
+
                             <div class="quantity-label">Số lượng:</div>
-                            <a class="now-get get-cart-in" href="#">Thêm vào giỏ hàng</a>
+
                             <div class="quantity">
-                                <button class="minus-btn" type="button" name="button" value=" - ">-</button>
-                                <input type="text" name="name" value="1">
-                                <button class="plus-btn" type="button" name="button" value=" + ">+</button>
+                                <form action="cart.do?bookID=${bookID}" method="post">
+                                    <button class="minus-btn" type="button" name="button" value=" - ">-</button>
+                                    <input type="text" name="amount" value="1">
+                                    <button class="plus-btn" type="button" name="button" value=" + ">+</button>
+                                    <input type="submit" value="Thêm vào giỏ hàng">
+                                </form>
                             </div>
                             <script type="text/javascript">
                                 $('.minus-btn').on('click', function (e) {
                                     e.preventDefault();
                                     var $this = $(this);
-                                    var $input = $this.closest('div').find('input');
+                                    var $input = $this.closest('div').find('input[type=text]');
                                     var value = parseInt($input.val());
 
                                     if (value > 1) {
@@ -94,7 +98,7 @@
                                 $('.plus-btn').on('click', function (e) {
                                     e.preventDefault();
                                     var $this = $(this);
-                                    var $input = $this.closest('div').find('input');
+                                    var $input = $this.closest('div').find('input[type=text]');
                                     var value = parseInt($input.val());
 
                                     if (value < 100) {
@@ -137,17 +141,17 @@
                     <c:forEach var="book" items="${bookList}">
                         <li>
                             <div class="product-item">
-                            <a href="<c:url value='book.do?${book.bookID}'/>" class="book-item-a" title="${book.bName}">
-                                <div class="content">
-                                    <span class="book-image">
-                                        <img class="book-item-img" src="images/${book.bookID}.jpg">
-                                    </span>
-                                    <p class="title">${book.bName}</p>
-                                    <p class="author-search">${book.author}</p>
-                                    <p class="price">${book.price/1000}00 vnđ</p>
-                                </div>
-                            </a>
-                        </div>
+                                <a href="<c:url value='book.do?${book.bookID}'/>" class="book-item-a" title="${book.bName}">
+                                    <div class="content">
+                                        <span class="book-image">
+                                            <img class="book-item-img" src="images/${book.bookID}.jpg">
+                                        </span>
+                                        <p class="title">${book.bName}</p>
+                                        <p class="author-search">${book.author}</p>
+                                        <p class="price">${book.price/1000}00 vnđ</p>
+                                    </div>
+                                </a>
+                            </div>
                         </li>
                         <c:set var="bookID" scope="request" value="NN0002"/>
                     </c:forEach>

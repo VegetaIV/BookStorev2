@@ -62,6 +62,41 @@ public class Cart {
         return list;
     }
     
+    public String adđToCart (String bookID, int amount) {
+        String query = "Insert into Purchase values (\'" + accID + "\', \'" + 
+                bookID + "\', getDate(), " + amount + ", 0)";
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/BookStore");
+            Connection conn = ds.getConnection();
+            Statement state = conn.createStatement();
+            ResultSet rs = state.executeQuery(query);
+            if (rs.next()) 
+                return this.accID;
+        } catch (SQLException | NamingException e) {
+            System.out.println(e.getMessage());
+        }
+        return this.accID;
+    }
+    
+    public String removeFromCart (String bookID) {
+        String query = "Delete from Purchase where AccID = \'" + accID + "\' and BookID = \'" + bookID + "\'";
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/BookStore");
+            Connection conn = ds.getConnection();
+            Statement state = conn.createStatement();
+            ResultSet rs = state.executeQuery(query);
+            if (rs.next()) 
+                return this.accID;
+        } catch (SQLException | NamingException e) {
+            System.out.println(e.getMessage());
+        }
+        return this.accID;
+    }
+    
     public int getTotal() {
         return this.total;
     }

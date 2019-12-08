@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MyPC
  */
-@WebServlet(name = "CateServlet", loadOnStartup = 1, urlPatterns = {"/CateServlet"})
+@WebServlet(name = "CateServlet", urlPatterns = {"/products.do"})
 public class CateServlet extends HttpServlet {
 
     /**
@@ -36,11 +36,42 @@ public class CateServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Category cate = new Category ("Văn học nước ngoài");
-        List<Book> list = cate.list(5);
-        request.setAttribute("list", list);
-        RequestDispatcher view = request.getRequestDispatcher("cate.jsp");
-        view.forward(request, response);
+        int page = 1;
+        int recordPerPage = 20;
+        //String userPath = request.getContextPath(); -> /BookStorev2
+        String cateName = null;
+        String cate = null;
+        //userPath.equals("/products.do");
+            cate = request.getParameter("cate");
+            if (request.getParameter("page") != null)
+                page = Integer.parseInt(request.getParameter("page"));
+            if (cate == null)
+                cate = "";
+            else if (cate.equals("sgk")) cateName = "Sách giáo khoa";
+            else if (cate.equals("ttr")) cateName = "Truyện tranh";
+            else if (cate.equals("tth")) cateName = "Tiểu thuyết";
+            else if (cate.equals("tvn")) cateName = "Thơ ca Việt Nam";
+            else if (cate.equals("vvn")) cateName = "Văn học Việt Nam";
+            else if (cate.equals("vnn")) cateName = "Văn học nước ngoài";
+            else cateName = "";
+        //request.setAttribute("userpath", userPath);
+        Category category = new Category (cateName);
+        List<Book> list = category.list((page-1)*recordPerPage, recordPerPage);
+        int noOfRecords = category.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordPerPage);
+        request.setAttribute("noOfRecords", noOfRecords);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        request.setAttribute("listBook", list);
+        if (cateName == null || cateName.equals("")) {
+            RequestDispatcher view = request.getRequestDispatcher("products.jsp");
+            view.forward(request, response);
+        } else {
+            request.setAttribute("category", cateName);
+            request.setAttribute("cate", cate);
+            RequestDispatcher view = request.getRequestDispatcher("cate.jsp");
+            view.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

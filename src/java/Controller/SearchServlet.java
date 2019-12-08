@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.Book;
+import Model.Category;
 import Model.Search;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MyPC
  */
-@WebServlet(name="SearchServlet", urlPatterns={"/search.do"})
+@WebServlet(name = "SearchServlet", urlPatterns = {"/search.do"})
 public class SearchServlet extends HttpServlet {
 
     /**
@@ -44,14 +45,26 @@ public class SearchServlet extends HttpServlet {
             }
             request.setAttribute("key", key);
             if (key.equals("")) {
-                RequestDispatcher view = request.getRequestDispatcher("product.jsp");
+                Category category = new Category("");
+                List<Book> list = category.list(0, 20);
+                int noOfRecords = category.getNoOfRecords();
+                int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / 20);
+                request.setAttribute("noOfRecords", noOfRecords);
+                request.setAttribute("noOfPages", noOfPages);
+                request.setAttribute("currentPage", 1);
+                request.setAttribute("listBook", list);
+                
+                RequestDispatcher view = request.getRequestDispatcher("products.jsp");
                 view.forward(request, response);
             } else {
                 Search result = new Search();
                 List<Book> list = result.search(key);
                 int noOfResult = result.getNoOfBook();
+                String message = "Kết quả tìm kiếm cho: \'" + key + "\'";
                 request.setAttribute("listBook", list);
                 request.setAttribute("noOfResult", noOfResult);
+                request.setAttribute("message", message);
+                
                 RequestDispatcher view = request.getRequestDispatcher("search.jsp");
                 view.forward(request, response);
             }

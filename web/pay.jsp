@@ -89,7 +89,7 @@
                             <input type="checkbox" class="tt-ch">Thanh toán bằng tiền mặt</br>
                             <input type="checkbox" class="tt-ch">Thanh toán bằng phương thức khác
                         </div>
-                        <button class="submit tt-button">149.000 Vnđ</button>
+                        <button class="submit tt-button">${money}00 vnđ</button>
                     </div>
                 </div>
             </div>

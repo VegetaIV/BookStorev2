@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cate
-    Created on : Nov 26, 2019, 12:11:10 PM
+    Document   : products
+    Created on : Dec 5, 2019, 9:00:32 PM
     Author     : MyPC
 --%>
 
@@ -45,7 +45,7 @@
         <div class="container">
             <div class="result_right">
                 <div class="result_top">
-                    <h1>${category}</h1><span>(${noOfRecords} kết quả)</span>
+                    <h1>Tất cả sản phẩm: ${userpath}</h1><span>(${noOfRecords} kết quả)</span>
                 </div>
                 <div class="result_bottom">
                     <c:forEach var="book" items="${listBook}">
@@ -63,7 +63,7 @@
                         </div>       
                     </c:forEach>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"> </div>	
                 <div class="list-pager">
                     <ul>
                         <c:forEach begin="1" end="${noOfPages}" var="i">

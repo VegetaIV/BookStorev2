@@ -40,12 +40,23 @@ public class CartServlet extends HttpServlet {
             accID = request.getParameter("accID");
         }
         Cart cart = new Cart(accID);
+        if (request.getQueryString() != null && !request.getQueryString().equals("")) {
+            String bookID = request.getParameter("bookID");
+            int amount = 1;
+            if (request.getParameter("amount") != null) {
+                amount = Integer.parseInt(request.getParameter("amount"));
+                cart.adđToCart(bookID, amount);
+            }   
+            else {
+                cart.removeFromCart(bookID);
+            }   
+        }
         List<Book> list = cart.bookCart();
         int total = cart.getTotal();
-        int amount = cart.getAmount();
+        int noOfRecords = cart.getAmount();
         request.setAttribute("bookCart", list);
         request.setAttribute("total", total);
-        request.setAttribute("amount", amount);
+        request.setAttribute("amount", noOfRecords);
         
         RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
         view.forward(request, response);

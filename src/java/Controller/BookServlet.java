@@ -40,7 +40,7 @@ public class BookServlet extends HttpServlet {
         request.setAttribute("bName", book.getbName());
         request.setAttribute("author", book.getAuthor());
         request.setAttribute("price", book.getPrice());
-        request.setAttribute("amount", book.getAmount());
+        //request.setAttribute("amount", book.getAmount());
         request.setAttribute("content", book.getContent());
         
         int off = 6;

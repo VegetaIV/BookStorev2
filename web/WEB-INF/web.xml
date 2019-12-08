@@ -38,7 +38,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CateServlet</servlet-name>
-        <url-pattern>/CateServlet</url-pattern>
+        <url-pattern>/products.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
