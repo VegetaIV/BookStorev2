@@ -28,7 +28,8 @@
                         <div class="clearfix"> </div>
                     </div>
                     <div class="header-bottom-right">					
-                        <div class="account"><a href="login.jsp"><span> </span>Tài khoản</a></div>
+                        <div class="account" id="login1"><a href="login.jsp"><span> </span>Tài khoản</a></div>
+                        <div class="account" id="account1"><a href="account.do"><span> </span>${name}</a></div>
                         <ul class="login" id="login">
                             <li><a href="login.jsp"><span> </span>Đăng nhập</a></li> |
                             <li ><a href="register.jsp">Đăng kí</a></li>
@@ -43,9 +44,13 @@
                             if (acc == null || acc == '') {
                                 document.getElementById('logout').style.display='none';
                                 document.getElementById('login').style.display='block';
+                                document.getElementById('account1').style.display='none';
+                                document.getElementById('login1').style.display='block';
                             } else {
                                 document.getElementById('login').style.display='none';
                                 document.getElementById('logout').style.display='block';
+                                document.getElementById('account1').style.display='block';
+                                document.getElementById('login1').style.display='none';
                             }
                         </script>
                     </div>

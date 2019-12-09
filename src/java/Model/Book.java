@@ -53,6 +53,52 @@ public class Book {
             System.err.println(ex);
         }
     }
+    
+    public String addBook (String bName, String author, String cate, int amount, int price, String content) {
+        String category = null;
+        String bookID = null;
+        if (cate.equals("sgk")) category = "Sách giáo khoa";
+        else if (cate.equals("ttr")) category = "Truyện tranh";
+        else if (cate.equals("tvn")) category = "Thơ ca Việt Nam";
+        else if (cate.equals("vvn")) category = "Văn học Việt Nam";
+        else if (cate.equals("tth")) category = "Tiểu thuyết";
+        else if (cate.equals("vnn")) category = "Văn học nước ngoài";
+        else category = "";
+        String query = "Select top 1 BookID from Book where Category = N\'" + 
+                category + "\' order by BookID desc";
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/BookStore");
+            Connection conn = ds.getConnection();
+            Statement state = conn.createStatement();
+            ResultSet rs = state.executeQuery(query);
+            
+            if (rs.next()) {
+                String last = rs.getString(1);
+                int c, m = 0;
+                int k = last.length();
+                for (int i=2; i<k; i++) {
+                    c = last.charAt(i) - '0';
+                    m = m*10 + c;
+                }
+                int n = m + 1;
+                bookID = last.substring(0, 2) + n;
+            }
+            rs.close();
+            
+            query = "Insert into Book values (\'" + bookID + "\', N\'" + 
+                    bName + "\', N\'" + author + "\', N\'" + category + "\', N\'" + 
+                    content + "\', " + price + ", " + amount + ")";
+            rs = state.executeQuery(query);
+            
+            if (rs.next()) 
+                return bookID;
+            } catch(SQLException | NamingException e) {
+            System.out.println(e.getMessage());
+        }
+        return bookID;
+    }
 
     public String getBookID() {
         return bookID;

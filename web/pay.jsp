@@ -42,7 +42,9 @@
     </head>
     <body>
         <script>
-            window.alert(${message});
+            var message = ${message};
+            if (message != null && message != '')
+                window.alert(message);
         </script>
         <jsp:include page="header.jsp"/>
         <div class="container">

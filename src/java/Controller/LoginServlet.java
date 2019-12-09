@@ -45,8 +45,10 @@ public class LoginServlet extends HttpServlet {
         boolean check = log.login(mail, password);
         if (check) {
             String accID = log.getId();
+            String name= log.getName();
             HttpSession session = request.getSession();
             session.setAttribute("accID", accID);
+            session.setAttribute("name", name);
             //request.setAttribute("accID", accID);
             if (request.getParameter("currentUrl") != null && !request.getParameter("currentUrl").equals("")) {
                 String urlPattern = request.getParameter("currentUrl");

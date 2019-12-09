@@ -119,4 +119,23 @@ public class Account {
         }
         return check;
     }
+    
+    public String update (String mail, String name, String phone) {
+        String query = "Update Account set Name = N\'" + name + "\', Phone = \'" + 
+                phone + "\' where Mail = \'" + mail + "\'";
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/BookStore");
+            Connection conn = ds.getConnection();
+            Statement state = conn.createStatement();
+            ResultSet rs = state.executeQuery(query);
+            if (rs.next()) {
+                return mail;
+            }
+        } catch (SQLException | NamingException e) {
+            System.out.println(e.getMessage());
+        }
+        return mail;
+    }
 }

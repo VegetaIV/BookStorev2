@@ -41,8 +41,8 @@
         </script>
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
-        
+        <jsp:include page="header.jsp" />
+        <!-- container -->
         <div class="container">
             <div class="shoes-grid">
                 <a href="book.do?VN1014">
@@ -52,7 +52,7 @@
                                 <article style="position: absolute; width: 100%; opacity: 0;">					
                                     <div class="banner-matter">
                                         <div class="col-md-5 banner-bag">
-                                            <img class="img-responsive " src="images/VN1014.jpg" alt=" " />
+                                            <img class="img-responsive " src="images/VN1014.jpg" alt=" "/>
                                         </div>
                                         <div class="col-md-7 banner-off">							
                                             <h2>Vỡ đê</h2>

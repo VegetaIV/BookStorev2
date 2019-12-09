@@ -32,6 +32,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Controller.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>Controller.AccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>Controller.AdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BookServlet</servlet-name>
         <url-pattern>/book.do</url-pattern>
@@ -64,6 +72,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/account.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin.do</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -75,20 +91,4 @@
         <res-type>javax.sql.ConnectionPoolDataSource</res-type>
         <res-auth>Container</res-auth>
     </resource-ref>
-    <jsp-config>
-        <jsp-property-group>
-            <description>JSP configuration for the store front</description>
-            <url-pattern>/index.jsp</url-pattern>
-            <url-pattern>/contact.jsp</url-pattern>
-            <!-- và các trang khác -->
-            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
-        </jsp-property-group>
-        <!-- optional for admin GUI -->
-        <jsp-property-group>
-            <description>JSP configuration for the admin console
-            </description>
-            <url-pattern>/admin/*</url-pattern>
-            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
-        </jsp-property-group>
-    </jsp-config>
 </web-app>

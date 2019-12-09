@@ -20,13 +20,14 @@ import javax.sql.DataSource;
  */
 public class Login {
     private String id;
+    private String name;
     
     public Login () {
         
     } 
     
     public boolean login (String mail, String password) {
-        String query = "Select AccID from Account where Mail = \'" + mail + "\' and Password = \'" + password + "\'";
+        String query = "Select AccID, Name from Account where Mail = \'" + mail + "\' and Password = \'" + password + "\'";
         boolean check = false;
         try {
             Context initContext = new InitialContext();
@@ -37,6 +38,7 @@ public class Login {
             ResultSet rs = state.executeQuery(query);
             if (rs.next()) {
                 this.id = rs.getString("AccID");
+                this.name = rs.getString("Name");
                 check = true;
             }
             else this.id = null;
@@ -53,6 +55,14 @@ public class Login {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     

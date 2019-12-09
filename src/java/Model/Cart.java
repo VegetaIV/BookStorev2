@@ -62,7 +62,7 @@ public class Cart {
         return list;
     }
     
-    public String adđToCart (String bookID, int amount) {
+    public String addToCart (String bookID, int amount) {
         String query = "Insert into Purchase values (\'" + accID + "\', \'" + 
                 bookID + "\', getDate(), " + amount + ", 0)";
         try {
