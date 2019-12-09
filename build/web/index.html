@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="container">
                     <div class="header-bottom-left">
                         <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt=" " /></a>
+                            <a href="index.jsp"><img src="images/logo.png" alt=" " /></a>
                         </div>
                         <form action="search.do" method="get">
                             <div class="search">
@@ -149,7 +149,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label for="rating-input-1-1" class="rating-star"> </label>
                                     </span>
                                 </div>
-                                <a class="now-get get-cart" href="#">Thêm vào giỏ hàng</a> 
+                                <a class="now-get get-cart" href="cart.do?bookID=TT3004&amount=1">Thêm vào giỏ hàng</a> 
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label for="rating-input-1-1" class="rating-star"> </label>
                                     </span>
                                 </div>
-                                <a class="now-get get-cart" href="#">Thêm vào giỏ hàng</a> 
+                                <a class="now-get get-cart" href="cart.do?bookID=TT3003&amount=1">Thêm vào giỏ hàng</a> 
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label for="rating-input-1-1" class="rating-star"> </label>
                                     </span>
                                 </div>
-                                <a class="now-get get-cart" href="#">Thêm vào giỏ hàng</a> 
+                                <a class="now-get get-cart" href="cart.do?bookID=NN0001&amount=1">Thêm vào giỏ hàng</a> 
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -240,7 +240,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label for="rating-input-1-1" class="rating-star"> </label>
                                     </span>
                                 </div>
-                                <a class="now-get get-cart" href="#">Thêm vào giỏ hàng</a> 
+                                <a class="now-get get-cart" href="cart.do?bookID=TT3007&amount=1">Thêm vào giỏ hàng</a> 
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -268,7 +268,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label for="rating-input-1-1" class="rating-star"> </label>
                                     </span>
                                 </div>
-                                <a class="now-get get-cart" href="#">Thêm vào giỏ hàng</a> 
+                                <a class="now-get get-cart" href="cart.do?bookID=TT3009&amount=1">Thêm vào giỏ hàng</a> 
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -296,7 +296,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label for="rating-input-1-1" class="rating-star"> </label>
                                     </span>
                                 </div>
-                                <a class="now-get get-cart" href="#">Thêm vào giỏ hàng</a> 
+                                <a class="now-get get-cart" href="cart.do?bookID=TT3005&amount=1">Thêm vào giỏ hàng</a> 
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -310,11 +310,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h3 class="cate">THỂ LOẠI </h3>
                     <ul class="menu">
                         <li><a href="products.do?cate=sgk">Sách giáo khoa</a></li>
-                        <li><a href="#">Truyện tranh</a></li>
-                        <li><a href="#">Thơ ca Việt Nam</a></li>
-                        <li><a href="#">Văn học Việt Nam</a></li>                       
-                        <li><a href="#">Tiểu thuyết</a></li>
-                        <li><a href="#">Văn học thế giới</a></li>
+                        <li><a href="products.do?cate=ttr">Truyện tranh</a></li>
+                        <li><a href="products.do?cate=tvn">Thơ ca Việt Nam</a></li>
+                        <li><a href="products.do?cate=vvn">Văn học Việt Nam</a></li>                       
+                        <li><a href="products.do?cate=tth">Tiểu thuyết</a></li>
+                        <li><a href="products.do?cate=vnn">Văn học thế giới</a></li>
                     </ul>
                 </div>
                 <!--initiate accordion-->
@@ -345,7 +345,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <h6><a href="book.do?VN0008">Tập thơ Việt Bắc</a></h6>  		     			   		     										
                     </div>
                 </div>
-                <a class="view-all all-product" href="product.html">Xem tất cá các sản phẩm<span> </span></a> 	
+                <a class="view-all all-product" href="products.do">Xem tất cá các sản phẩm<span> </span></a> 	
             </div>
             <div class="clearfix"> </div>        	         
         </div>
@@ -358,31 +358,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="footer-bottom-cate">
                         <h6>Thương hiệu hàng đầu</h6>
                         <ul>
-                            <li><a href="#">Sách giáo khoa</a></li>
-                            <li><a href="#">Truyện tranh</a></li>
-                            <li><a href="#">Thơ ca Việt Nam</a></li>
-                            <li><a href="#">Văn học Việt Nam</a></li>
-                            <li><a href="#">Tiểu thuyết</a></li>
-                            <li><a href="#">Văn học thế giới</a></li>
+                            <li><a href="products.do?cate=sgk">Sách giáo khoa</a></li>
+                            <li><a href="products.do?cate=ttr">Truyện tranh</a></li>
+                            <li><a href="products.do?cate=tvn">Thơ ca Việt Nam</a></li>
+                            <li><a href="products.do?cate=vvn">Văn học Việt Nam</a></li>
+                            <li><a href="products.do?cate=tth">Tiểu thuyết</a></li>
+                            <li><a href="products.do?cate=vnn">Văn học thế giới</a></li>
                         </ul>
                     </div>
                     <div class="footer-bottom-cate cate-bottom">
                         <h6>Tài khoản của tôi</h6>
                         <ul>
-                            <li><a href="#">Đăng nhập/ đăng kí</a></li>
+                            <li><a href="login.jsp">Đăng nhập/ đăng kí</a></li>
                             <li><a href="#">Thay đổi địa chỉ</a></li>						
                             <li><a href="#">Thông tin tài khoản</a></li>
                             <li><a href="#">Lịch sử đơn hàng</a></li>					
                         </ul>
                     </div>
                     <div class="footer-bottom-cate logo">
-                        <h6><a href="index.html"><img src="images/logo.png" alt=""/></a></h6>
+                        <h6><a href="index.jsp"><img src="images/logo.png" alt=""/></a></h6>
 
                         <ul>
                             <li>Nhà sách BookStore</li>
                             <li>Số 1 Đại Cồ Việt, Quận Đống Đa, Hà Nội</li>
                         </ul>
                     </div>
+
                     <div class="clearfix"> </div>
                 </div>
             </div>

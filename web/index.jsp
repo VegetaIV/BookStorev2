@@ -1,17 +1,19 @@
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%-- 
+    Document   : index
+    Created on : Dec 9, 2019, 12:47:21 AM
+    Author     : MyPC
+--%>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>BookStore</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <!--theme-style-->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+        <link rel="stylesheet" href="css/etalage.css" type="text/css" media="all" />
         <!--//theme-style-->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -19,39 +21,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         <!--//fonts-->
         <script src="js/jquery.min.js"></script>
-        <!--script-->
+
+        <script src="js/jquery.etalage.min.js"></script>
+        <script>
+            jQuery(document).ready(function ($) {
+
+                $('#etalage').etalage({
+                    thumb_image_width: 300,
+                    thumb_image_height: 400,
+                    source_image_width: 900,
+                    source_image_height: 1200,
+                    show_hint: true,
+                    click_callback: function (image_anchor, instance_id) {
+                        alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
+                    }
+                });
+
+            });
+        </script>
     </head>
-    <body> 
-        <!--header-->
-        <div class="header">
-            <div class="bottom-header">
-                <div class="container">
-                    <div class="header-bottom-left">
-                        <div class="logo">
-                            <a href="index.jsp"><img src="images/logo.png" alt=" " /></a>
-                        </div>
-                        <form action="search.do" method="get">
-                            <div class="search">
-                                <input type="text" name="key" value="">
-                                <input type="submit"  value="Tìm kiếm">
-                            </div>
-                        </form>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="header-bottom-right">					
-                        <div class="account"><a href="login.jsp"><span> </span>Tài khoản</a></div>
-                        <ul class="login">
-                            <li><a href="login.jsp"><span> </span>Đăng nhập</a></li> |
-                            <li ><a href="register.jsp">Đăng kí</a></li>
-                        </ul>
-                        <div class="cart"><a href="cart.do"><span> </span>Giỏ hàng</a></div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="clearfix"> </div>	
-                </div>
-            </div>
-        </div>
-        <!---->
+    <body>
+        <jsp:include page="header.jsp"/>
+        
         <div class="container">
             <div class="shoes-grid">
                 <a href="book.do?VN1014">
@@ -310,11 +301,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h3 class="cate">THỂ LOẠI </h3>
                     <ul class="menu">
                         <li><a href="products.do?cate=sgk">Sách giáo khoa</a></li>
-                        <li><a href="products.do?cate=ttr">Truyện tranh</a></li>
-                        <li><a href="products.do?cate=tvn">Thơ ca Việt Nam</a></li>
-                        <li><a href="products.do?cate=vvn">Văn học Việt Nam</a></li>                       
-                        <li><a href="products.do?cate=tth">Tiểu thuyết</a></li>
-                        <li><a href="products.do?cate=vnn">Văn học thế giới</a></li>
+                            <li><a href="products.do?cate=ttr">Truyện tranh</a></li>
+                            <li><a href="products.do?cate=tvn">Thơ ca Việt Nam</a></li>
+                            <li><a href="products.do?cate=vvn">Văn học Việt Nam</a></li>
+                            <li><a href="products.do?cate=tth">Tiểu thuyết</a></li>
+                            <li><a href="products.do?cate=vnn">Văn học thế giới</a></li>
                     </ul>
                 </div>
                 <!--initiate accordion-->
@@ -345,48 +336,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <h6><a href="book.do?VN0008">Tập thơ Việt Bắc</a></h6>  		     			   		     										
                     </div>
                 </div>
-                <a class="view-all all-product" href="products.do">Xem tất cá các sản phẩm<span> </span></a> 	
+                <a class="view-all all-product" href="product.html">Xem tất cá các sản phẩm<span> </span></a> 	
             </div>
             <div class="clearfix"> </div>        	         
         </div>
-
-        <!---->
-        <div class="footer">
-            <div class="footer-top"></div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="footer-bottom-cate">
-                        <h6>Thương hiệu hàng đầu</h6>
-                        <ul>
-                            <li><a href="products.do?cate=sgk">Sách giáo khoa</a></li>
-                            <li><a href="products.do?cate=ttr">Truyện tranh</a></li>
-                            <li><a href="products.do?cate=tvn">Thơ ca Việt Nam</a></li>
-                            <li><a href="products.do?cate=vvn">Văn học Việt Nam</a></li>
-                            <li><a href="products.do?cate=tth">Tiểu thuyết</a></li>
-                            <li><a href="products.do?cate=vnn">Văn học thế giới</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-bottom-cate cate-bottom">
-                        <h6>Tài khoản của tôi</h6>
-                        <ul>
-                            <li><a href="login.jsp">Đăng nhập/ đăng kí</a></li>
-                            <li><a href="#">Thay đổi địa chỉ</a></li>						
-                            <li><a href="#">Thông tin tài khoản</a></li>
-                            <li><a href="#">Lịch sử đơn hàng</a></li>					
-                        </ul>
-                    </div>
-                    <div class="footer-bottom-cate logo">
-                        <h6><a href="index.jsp"><img src="images/logo.png" alt=""/></a></h6>
-
-                        <ul>
-                            <li>Nhà sách BookStore</li>
-                            <li>Số 1 Đại Cồ Việt, Quận Đống Đa, Hà Nội</li>
-                        </ul>
-                    </div>
-
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
+        
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

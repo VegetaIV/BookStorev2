@@ -1367,7 +1367,6 @@ ul.face-in-to li a span.facebook-in{
 }
 .quantity {
     margin-top: 0px;
-    padding-top: 10px;
 }
 .quantity input[type=text], .quantity input[type=button] {
     text-align: center;
@@ -1377,6 +1376,7 @@ ul.face-in-to li a span.facebook-in{
     font-size: 16px;
     color: #43484D;
     font-weight: 300;
+    margin-top: 10px;
 }
 .quantity input[type=submit] {
     font-size: 1.1em;
@@ -1385,6 +1385,10 @@ ul.face-in-to li a span.facebook-in{
     background: blue;
     text-decoration: none;
     float: right;
+    border: none;
+}
+.quantity input[type=submit]:hover {
+    background: #5eb8da;
 }
 button[class*=btn] {
     width: 30px;
@@ -2138,4 +2142,7 @@ img.banner-bag {
     font-weight: 400;
     background: #189eff;
     color: #fff;
+}
+#logout {
+    display: none;
 }

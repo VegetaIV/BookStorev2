@@ -10,9 +10,11 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -43,8 +45,15 @@ public class LoginServlet extends HttpServlet {
         boolean check = log.login(mail, password);
         if (check) {
             String accID = log.getId();
-            request.setAttribute("accID", accID);
-            RequestDispatcher view = request.getRequestDispatcher("index.html");
+            HttpSession session = request.getSession();
+            session.setAttribute("accID", accID);
+            //request.setAttribute("accID", accID);
+            if (request.getParameter("currentUrl") != null && !request.getParameter("currentUrl").equals("")) {
+                String urlPattern = request.getParameter("currentUrl");
+                RequestDispatcher view = request.getRequestDispatcher(urlPattern);
+                view.forward(request, response);
+            }
+            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
             view.forward(request, response);
         } else {
             String message = "Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại!";

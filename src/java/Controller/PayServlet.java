@@ -5,10 +5,9 @@
  */
 package Controller;
 
-import Model.Book;
 import Model.Cart;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,21 +20,13 @@ import javax.servlet.http.HttpSession;
  *
  * @author MyPC
  */
-@WebServlet(name = "CartServlet", urlPatterns = {"/cart.do"})
-public class CartServlet extends HttpServlet {
+@WebServlet(name = "PayServlet", urlPatterns = {"/pay.do"})
+public class PayServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         String accID = "102001";
         HttpSession session = request.getSession();
         if (session.getAttribute("accID") != null) {
@@ -46,26 +37,19 @@ public class CartServlet extends HttpServlet {
             RequestDispatcher view = request.getRequestDispatcher("login.jsp");
             view.forward(request, response);
         }
-        Cart cart = new Cart(accID);
+        int money = 0;
         if (request.getQueryString() != null && !request.getQueryString().equals("")) {
-            String bookID = request.getParameter("bookID");
-            int amount = 1;
-            if (request.getParameter("amount") != null) {
-                amount = Integer.parseInt(request.getParameter("amount"));
-                cart.adđToCart(bookID, amount);
-            }   
-            else {
-                cart.removeFromCart(bookID);
-            }   
+            money = Integer.parseInt(request.getParameter("money"));
+            request.setAttribute("money", money);
+            RequestDispatcher view = request.getRequestDispatcher("pay.jsp");
+            view.forward(request, response);
         }
-        List<Book> list = cart.bookCart();
-        int total = cart.getTotal();
-        int noOfRecords = cart.getAmount();
-        request.setAttribute("bookCart", list);
-        request.setAttribute("total", total);
-        request.setAttribute("amount", noOfRecords);
-        
-        RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
+        Cart cart = new Cart(accID);
+        cart.toPay();
+        String message = "Đã thanh toán thành công!";
+        request.setAttribute("message", message);
+
+        RequestDispatcher view = request.getRequestDispatcher("pay.jsp");
         view.forward(request, response);
     }
 

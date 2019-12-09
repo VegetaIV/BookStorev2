@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="header-bottom-left">
                         <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt=" " /></a>
+                            <a href="index.jsp"><img src="images/logo.png" alt=" " /></a>
                         </div>
                         <form action="search.do" method="get">
                             <div class="search">
@@ -29,12 +29,25 @@
                     </div>
                     <div class="header-bottom-right">					
                         <div class="account"><a href="login.jsp"><span> </span>Tài khoản</a></div>
-                        <ul class="login">
+                        <ul class="login" id="login">
                             <li><a href="login.jsp"><span> </span>Đăng nhập</a></li> |
                             <li ><a href="register.jsp">Đăng kí</a></li>
                         </ul>
+                        <ul class="login" id="logout">
+                            <li><a href="logout.do"><span> </span>Đăng xuất</a></li>
+                        </ul>
                         <div class="cart"><a href="cart.do"><span> </span>Giỏ hàng</a></div>
                         <div class="clearfix"> </div>
+                        <script>
+                            var acc = ${accID};
+                            if (acc == null || acc == '') {
+                                document.getElementById('logout').style.display='none';
+                                document.getElementById('login').style.display='block';
+                            } else {
+                                document.getElementById('login').style.display='none';
+                                document.getElementById('logout').style.display='block';
+                            }
+                        </script>
                     </div>
                     <div class="clearfix"> </div>	
                 </div>

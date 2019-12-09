@@ -47,6 +47,7 @@
                     <h3>ĐĂNG NHẬP</h3>
                     <p>${message}</p>
                     <form action="login.do" method="post">
+                        <input type="hidden" name="currentUrl" value="${currentUrl}">
                         <div>
                             <span>Địa chỉ Email<label>*</label></span>
                             <input type="text" name="mail"> 

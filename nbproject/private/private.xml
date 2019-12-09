@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/web/viewProducts.jsp</file>
+            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/src/java/Model/Cart.java</file>
+            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/src/java/Controller/PayServlet.java</file>
             <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/web/css/style.css</file>
-            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/web/cate.jsp</file>
-            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/web/category.jsp</file>
-            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/src/java/Controller/BookServlet.java</file>
+            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/web/pay.jsp</file>
+            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/web/cart.jsp</file>
+            <file>file:/C:/Users/MyPC/Documents/NetBeansProjects/BookStorev2/src/java/Controller/CartServlet.java</file>
         </group>
     </open-files>
 </project-private>

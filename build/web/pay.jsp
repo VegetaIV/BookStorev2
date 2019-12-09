@@ -41,10 +41,13 @@
         </script>
     </head>
     <body>
+        <script>
+            window.alert(${message});
+        </script>
         <jsp:include page="header.jsp"/>
         <div class="container">
             <div class="products-pay">
-                <h3 class="latest-product">Thanh Toán</h3><br>
+                <h3 class="latest-product">Thanh Toán ${message}</h3><br>
             </div>
             <h4>Điền vào dưới đây để hoàn thành mua bán của bạn !</h4>
             <div>
@@ -89,7 +92,7 @@
                             <input type="checkbox" class="tt-ch">Thanh toán bằng tiền mặt</br>
                             <input type="checkbox" class="tt-ch">Thanh toán bằng phương thức khác
                         </div>
-                        <button class="submit tt-button">${money}00 vnđ</button>
+                        <button class="submit tt-button">${money/1000}00 vnđ</button>
                     </div>
                 </div>
             </div>

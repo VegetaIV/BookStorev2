@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -96,7 +97,10 @@ public class RegisterServlet extends HttpServlet {
                     Account account = register.getAcc();
                     String accID = account.getAccID();
                     request.setAttribute("message", message);
-                    request.setAttribute("id", accID);
+                    
+                    HttpSession session = request.getSession();
+                    session.setAttribute("accID", accID);
+                    
                     RequestDispatcher view = request.getRequestDispatcher("account.jsp");
                     view.forward(request, response);
                 }

@@ -97,6 +97,24 @@ public class Cart {
         return this.accID;
     }
     
+    public String toPay () {
+        String query = "Update Purchase set Bought = 1 where AccID = \'" + 
+                accID + "\' and Bought = 0";
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/BookStore");
+            Connection conn = ds.getConnection();
+            Statement state = conn.createStatement();
+            ResultSet rs = state.executeQuery(query);
+            if (rs.next()) 
+                return this.accID;
+        } catch (SQLException | NamingException e) {
+            System.out.println(e.getMessage());
+        }
+        return this.accID;
+    }
+    
     public int getTotal() {
         return this.total;
     }
